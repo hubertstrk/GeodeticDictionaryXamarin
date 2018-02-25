@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GeodeticDictionaryXamarin;assembly=GeodeticDictionaryXamarin"
+             x:Class="GeodeticDictionaryXamarin.TranslationView"
+             Title="Geodetic Dictionary">
+
+  <StackLayout Padding="10, 0">
+    <SearchBar x:Name="SearchBar" Placeholder="Enter your search term here"
+               SearchCommand="{Binding SearchCommand}"
+               SearchCommandParameter="{Binding Source={x:Reference SearchBar}, Path=Text}" />
+
+    <ListView ItemsSource="{Binding Translations}"> x:Name="translationList">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <TextCell Text="{Binding Primary}" Detail="{Binding Subsidiary}"/>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>
